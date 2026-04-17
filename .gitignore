@@ -1,0 +1,30 @@
+# CMake
+out/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+
+# Visual Studio / MSBuild
+.vs/
+*.vcxproj*
+*.sln
+*.VC.db
+*.VC.opendb
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Binaries
+*.exe
+*.dll
+*.pdb
+*.obj
+*.lib
+*.exp
+
+# Other
+.DS_Store

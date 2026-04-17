@@ -1,0 +1,45 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Prepare output (out/bin)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "New-Item -ItemType Directory -Force \"${workspaceFolder}\\out\\bin\" | Out-Null"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (g++)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++20",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-I",
+        "${workspaceFolder}\\include",
+        "${workspaceFolder}\\src\\main.cpp",
+        "-o",
+        "${workspaceFolder}\\out\\bin\\pro.exe"
+      ],
+      "problemMatcher": ["$gcc"],
+      "group": "build",
+      "dependsOn": ["Prepare output (out/bin)"]
+    },
+    {
+      "label": "Run",
+      "type": "shell",
+      "command": "${workspaceFolder}\\out\\bin\\pro.exe",
+      "dependsOn": ["Build (g++)"],
+      "problemMatcher": []
+    }
+  ]
+}
